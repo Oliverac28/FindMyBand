@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "208924154921",
+    "firebase_url": "https://findmyband-d3028.firebaseio.com",
+    "project_id": "findmyband-d3028",
+    "storage_bucket": "findmyband-d3028.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:208924154921:android:d2b2fdfc481a8982b19038",
+        "android_client_info": {
+          "package_name": "com.example.findmyband"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "208924154921-btr303v652md1g86esvo57gisl7lejng.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDrc3MgiPTOT8QwHp8ibeYDP2szjHoxm78"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "208924154921-btr303v652md1g86esvo57gisl7lejng.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
