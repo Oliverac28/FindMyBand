@@ -2,7 +2,6 @@ package com.example.findmyband;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -12,14 +11,14 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
-public class discovery extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {//implementation
+public class message extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
     private DrawerLayout drawer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_discovery);
+        setContentView(R.layout.activity_message);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -35,7 +34,7 @@ public class discovery extends AppCompatActivity implements NavigationView.OnNav
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        navigationView.setCheckedItem(R.id.nav_discover);
+        navigationView.setCheckedItem(R.id.nav_message);
     }
 
     //navigation method
@@ -64,7 +63,7 @@ public class discovery extends AppCompatActivity implements NavigationView.OnNav
         }
         return true;
     }
-    //*************
+//*************
 
     @Override
     public void onBackPressed() {
