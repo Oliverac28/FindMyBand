@@ -25,7 +25,7 @@ public class discovery extends AppCompatActivity {
         drawer.addDrawerListener(toggle);
         toggle.syncState();
     }
-
+    //Menu
     @Override
     public void onBackPressed() {
         if(drawer.isDrawerOpen(GravityCompat.START)){
@@ -35,4 +35,7 @@ public class discovery extends AppCompatActivity {
             super.onBackPressed();
         }
     }
+
+    //Swipe card
+
 }
