@@ -76,3 +76,4 @@ public class discovery extends AppCompatActivity implements NavigationView.OnNav
         }
     }
 }
+//comment
