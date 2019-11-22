@@ -7,8 +7,8 @@
     android:id="@+id/drawer_layout"
     android:fitsSystemWindows="true"
     tools:context=".account"
-    tools:openDrawer="start">
-
+    >
+    tools:openDrawer="start"
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -23,10 +23,215 @@
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
             android:elevation="4dp"/>
 
-        <FrameLayout
+        <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/fragment_container"/>
+            android:layout_height="match_parent">
+
+            <android.support.constraint.Guideline
+                android:id="@+id/guideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.5" />
+
+            <android.support.constraint.Guideline
+                android:id="@+id/guideline2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.5" />
+
+            <Button
+                android:id="@+id/save_profile_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:text="Save Changes"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/instrument_textView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:text="Instrument Type(s)"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textSize="22sp"
+                app:layout_constraintBottom_toTopOf="@+id/primary_instrument"
+                app:layout_constraintEnd_toStartOf="@+id/guideline"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <Spinner
+                android:id="@+id/primary_instrument"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                app:layout_constraintBottom_toTopOf="@+id/secondary_instrument"
+                app:layout_constraintEnd_toStartOf="@+id/guideline"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <Spinner
+                android:id="@+id/secondary_instrument"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                app:layout_constraintBottom_toTopOf="@+id/guideline2"
+                app:layout_constraintEnd_toStartOf="@+id/guideline"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/genres_textView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:text="Genre(s)"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textSize="22sp"
+                app:layout_constraintBottom_toTopOf="@+id/genre_one"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/guideline" />
+
+            <EditText
+                android:id="@+id/genre_one"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:ems="10"
+                android:hint="Genre"
+                android:inputType="textPersonName"
+                app:layout_constraintBottom_toTopOf="@+id/genre_two"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="@+id/guideline" />
+
+            <EditText
+                android:id="@+id/genre_two"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:ems="10"
+                android:hint="Genre"
+                android:inputType="textPersonName"
+                app:layout_constraintBottom_toTopOf="@+id/genre_three"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="@+id/guideline" />
+
+            <EditText
+                android:id="@+id/genre_three"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:ems="10"
+                android:hint="Genre"
+                android:inputType="textPersonName"
+                app:layout_constraintBottom_toTopOf="@+id/guideline2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/guideline" />
+
+            <TextView
+                android:id="@+id/bio_textView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:text="Bio"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                app:layout_constraintEnd_toStartOf="@+id/guideline"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/guideline2" />
+
+            <EditText
+                android:id="@+id/bio"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:ems="10"
+                android:gravity="start|top"
+                android:hint="Write a bit about yourself. Specify what instruments you play etc."
+                android:inputType="textMultiLine"
+                android:textAlignment="textStart"
+                app:layout_constraintBottom_toTopOf="@+id/save_profile_button"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/bio_textView" />
+
+            <TextView
+                android:id="@+id/info_textView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:text="Info."
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                app:layout_constraintBottom_toTopOf="@+id/name"
+                app:layout_constraintEnd_toStartOf="@+id/guideline"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <EditText
+                android:id="@+id/name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:ems="10"
+                android:hint="Name"
+                android:inputType="textPersonName"
+                app:layout_constraintBottom_toTopOf="@+id/country"
+                app:layout_constraintEnd_toStartOf="@+id/guideline"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <EditText
+                android:id="@+id/country"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginBottom="8dp"
+                android:ems="10"
+                android:hint="Country"
+                android:inputType="textPersonName"
+                app:layout_constraintBottom_toTopOf="@+id/city"
+                app:layout_constraintEnd_toStartOf="@+id/guideline"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <EditText
+                android:id="@+id/city"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:ems="10"
+                android:hint="City"
+                android:inputType="textPersonName"
+                app:layout_constraintBottom_toTopOf="@+id/instrument_textView"
+                app:layout_constraintEnd_toStartOf="@+id/guideline"
+                app:layout_constraintStart_toStartOf="parent" />
+
+        </android.support.constraint.ConstraintLayout>
+
     </LinearLayout>
 
     <android.support.design.widget.NavigationView

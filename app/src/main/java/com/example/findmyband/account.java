@@ -10,33 +10,63 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 
-public class account extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
+public class account extends AppCompatActivity implements AdapterView.OnItemSelectedListener, NavigationView.OnNavigationItemSelectedListener{
 
     private DrawerLayout drawer;
+    private Spinner primary_instrument;
+    private Spinner secondary_instrument;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_account);
 
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        {
+            primary_instrument = findViewById(R.id.primary_instrument);
+            secondary_instrument = findViewById(R.id.secondary_instrument);
 
-        drawer = findViewById(R.id.drawer_layout);
-        //*****
-        NavigationView navigationView = findViewById(R.id.nav_view);//listener for navigation method
-        navigationView.setNavigationItemSelectedListener(this);
-        //*****
+            ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                    R.array.instrument_array, android.R.layout.simple_spinner_item);
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar,
-                R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.addDrawerListener(toggle);
-        toggle.syncState();
+            primary_instrument.setAdapter(adapter);
+            secondary_instrument.setAdapter(adapter);
+        }
 
-        navigationView.setCheckedItem(R.id.nav_account);
+        {
+            Toolbar toolbar = findViewById(R.id.toolbar);
+            setSupportActionBar(toolbar);
+
+            drawer = findViewById(R.id.drawer_layout);
+            //*****
+            NavigationView navigationView = findViewById(R.id.nav_view);//listener for navigation method
+            navigationView.setNavigationItemSelectedListener(this);
+            //*****
+
+            ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar,
+                    R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+            drawer.addDrawerListener(toggle);
+            toggle.syncState();
+
+            navigationView.setCheckedItem(R.id.nav_account);
+        }
+    }
+    //Methods for spinners
+    public void onItemSelected(AdapterView<?> parent, View view,
+                               int pos, long id) {
+        // An item was selected. You can retrieve the selected item using
+        // parent.getItemAtPosition(pos)
     }
 
+    public void onNothingSelected(AdapterView<?> parent) {
+        // Another interface callback
+    }
+    //
     //navigation method
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item){
