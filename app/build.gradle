@@ -37,6 +37,7 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 
+    implementation 'com.lorentzos.swipecards:library:1.0.9'
     // add SDKs for desired Firebase products
     //https://firebase.google.com/docs/android/setup#available-libraries
 }
