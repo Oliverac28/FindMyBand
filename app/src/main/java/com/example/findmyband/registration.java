@@ -18,8 +18,8 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class registration extends AppCompatActivity {
 
-
     private Button mRegister;
+    //private EditText mName;
     private EditText mEmail;
     private EditText mPassword;
 
@@ -49,14 +49,17 @@ public class registration extends AppCompatActivity {
 
         mRegister = (Button)findViewById(R.id.button);
 
-        mEmail = (EditText)findViewById(R.id.editText3);
-        mPassword = (EditText)findViewById(R.id.editText4);
+        //mName = (EditText)findViewById(R.id.nameText);
+        mEmail = (EditText)findViewById(R.id.emailText);
+        mPassword = (EditText)findViewById(R.id.passwordText);
 
         mRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 final String email = mEmail.getText().toString();
-                final String password = mEmail.getText().toString();
+                final String password = mPassword.getText().toString();
+                //final String name = mName.getText().toString();
+
 
                 mAuth.createUserWithEmailAndPassword( email, password ).addOnCompleteListener(registration.this, new OnCompleteListener<AuthResult>() {
                     @Override
