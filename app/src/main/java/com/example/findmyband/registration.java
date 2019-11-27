@@ -47,7 +47,7 @@ public class registration extends AppCompatActivity {
             }
         };
 
-        mRegister = (Button)findViewById(R.id.button);
+        mRegister = (Button)findViewById(R.id.register);
 
         mEmail = (EditText)findViewById(R.id.editText3);
         mPassword = (EditText)findViewById(R.id.editText4);
@@ -56,7 +56,7 @@ public class registration extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 final String email = mEmail.getText().toString();
-                final String password = mEmail.getText().toString();
+                final String password = mPassword.getText().toString();
 
                 mAuth.createUserWithEmailAndPassword( email, password ).addOnCompleteListener(registration.this, new OnCompleteListener<AuthResult>() {
                     @Override
@@ -70,7 +70,7 @@ public class registration extends AppCompatActivity {
 
             }
         });
-        //Registration
+
     }
 
     //Registration

@@ -5,12 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
 
     private Button mLogin, mRegister;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,16 +19,16 @@ public class MainActivity extends AppCompatActivity {
         mLogin = (Button)findViewById(R.id.loginBtn);
         mRegister = (Button)findViewById(R.id.registerBtn);
 
+            mLogin.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(MainActivity.this, discovery.class);
+                    startActivity(intent);
+                    finish();
+                    return;
+                }
+            });
 
-        mLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, discovery.class);
-                startActivity( intent );
-                finish();
-                return;
-            }
-        });
 
         mRegister.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -44,9 +43,5 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    public void login(View view){
-        Intent intent = new Intent(getApplicationContext(), discovery.class);
-        startActivity(intent);
-    }
 
 }
