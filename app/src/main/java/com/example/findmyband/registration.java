@@ -41,7 +41,7 @@ public class registration extends AppCompatActivity {
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                 if( user != null ){
-                    Intent intent = new Intent(registration.this, MainActivity.class);
+                    Intent intent = new Intent(registration.this, setup.class);
                     startActivity( intent );
                     finish();
                     return;
@@ -52,7 +52,6 @@ public class registration extends AppCompatActivity {
 
         mRegister = (Button)findViewById(R.id.registerBtn);
 
-        //mName = (EditText)findViewById(R.id.nameText);
         mEmail = (EditText)findViewById(R.id.emailText);
         mPassword = (EditText)findViewById(R.id.passwordText);
         mConfirmationPassword = (EditText)findViewById(R.id.confirmation);
@@ -64,7 +63,6 @@ public class registration extends AppCompatActivity {
                 final String password = mPassword.getText().toString();
                 final String confirmPassword = mConfirmationPassword.getText().toString();
 
-                //final String name = mName.getText().toString();
                 if( !password.equals(confirmPassword) ){
                     Toast.makeText(registration.this, "Password and Confirmation Does not Match", Toast.LENGTH_SHORT).show();
                 }
