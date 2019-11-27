@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "208924154921-iovjmds4cpl6gf119uvcp9m85ocfsh7i.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.findmyband",
+            "certificate_hash": "9041816754d22211bac83af40a53ae627a841d0e"
+          }
+        },
+        {
           "client_id": "208924154921-btr303v652md1g86esvo57gisl7lejng.apps.googleusercontent.com",
           "client_type": 3
         }

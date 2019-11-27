@@ -1,20 +1,52 @@
 package com.example.findmyband;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
+
+    private Button mLogin, mRegister;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        mLogin = (Button)findViewById(R.id.loginBtn);
+        mRegister = (Button)findViewById(R.id.registerBtn);
+
+
+        mLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, discovery.class);
+                startActivity( intent );
+                finish();
+                return;
+            }
+        });
+
+        mRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(MainActivity.this, registration.class);
+                startActivity( intent );
+                finish();
+                return;
+
+            }
+        });
     }
 
     public void login(View view){
         Intent intent = new Intent(getApplicationContext(), discovery.class);
         startActivity(intent);
     }
+
 }
