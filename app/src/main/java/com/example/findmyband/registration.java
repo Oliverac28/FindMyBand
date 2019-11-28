@@ -21,7 +21,6 @@ import com.google.firebase.auth.FirebaseUser;
 public class registration extends AppCompatActivity {
 
     private Button mRegister;
-    //private EditText mName;
     private EditText mEmail;
     private EditText mPassword;
     private EditText mConfirmationPassword;
