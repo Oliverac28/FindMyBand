@@ -32,7 +32,7 @@ public class search extends AppCompatActivity implements NavigationView.OnNaviga
         setContentView(R.layout.activity_search);
 
         {
-            listView = findViewById(R.id.friends);
+            listView = findViewById(R.id.search_results);
             ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, dummy_users);
             listView.setAdapter(adapter);
         }

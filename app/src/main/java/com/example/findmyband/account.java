@@ -59,7 +59,7 @@ public class account extends AppCompatActivity implements /*AdapterView.OnItemSe
     private Button mLogout;
 
     //saving user profile
-    private CircleImageView setupImage;
+    /////////////////////////////private CircleImageView setupImage;
     private Uri mainImageURI = null;
 
     private String user_id;
@@ -104,7 +104,7 @@ public class account extends AppCompatActivity implements /*AdapterView.OnItemSe
             storageReference = FirebaseStorage.getInstance().getReference();
 
 
-            setupImage = findViewById(R.id.setup_image);
+           /////////////////////////////////// setupImage = findViewById(R.id.setup_image);
 
             mLocation = findViewById(R.id.location);
             mPrimaryInstrument = findViewById(R.id.primary_instrument);
@@ -227,7 +227,7 @@ public class account extends AppCompatActivity implements /*AdapterView.OnItemSe
                 }
 
             });
-
+/*
             setupImage.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -253,7 +253,7 @@ public class account extends AppCompatActivity implements /*AdapterView.OnItemSe
 
                 }
 
-            });
+            });*/
         }
         //
 
@@ -360,7 +360,7 @@ public class account extends AppCompatActivity implements /*AdapterView.OnItemSe
             if (resultCode == RESULT_OK) {
 
                 mainImageURI = result.getUri();
-                setupImage.setImageURI(mainImageURI);
+             ////////////////////   setupImage.setImageURI(mainImageURI);
 
                 isChanged = true;
 
@@ -374,6 +374,7 @@ public class account extends AppCompatActivity implements /*AdapterView.OnItemSe
     }
     //
     /*
+
     //Methods for spinners
     public void onItemSelected(AdapterView<?> parent, View view,
                                int pos, long id) {
