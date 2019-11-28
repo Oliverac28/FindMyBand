@@ -14,6 +14,12 @@ import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 import com.lorentzos.flingswipe.SwipeFlingAdapterView;
 
 import java.util.ArrayList;
@@ -27,6 +33,14 @@ public class discovery extends AppCompatActivity implements NavigationView.OnNav
     private ArrayAdapter<String> arrayAdapter;
     private int i;
     //
+
+    private String user_id;
+    private StorageReference storageReference;
+    private FirebaseAuth firebaseAuth;
+    private FirebaseFirestore firebaseFirestore;
+
+
+
 
 
     @Override
@@ -52,6 +66,13 @@ public class discovery extends AppCompatActivity implements NavigationView.OnNav
 
         navigationView.setCheckedItem(R.id.nav_discover);
         //
+
+        //Get user id
+        firebaseAuth = FirebaseAuth.getInstance();
+        user_id = firebaseAuth.getCurrentUser().getUid();
+
+        firebaseFirestore = FirebaseFirestore.getInstance();
+        storageReference = FirebaseStorage.getInstance().getReference();
 
         //Swipe cards
         al = new ArrayList<>();
@@ -117,6 +138,15 @@ public class discovery extends AppCompatActivity implements NavigationView.OnNav
         });
 
         //Swipe Cards
+    }
+
+    public void checkUserLocation(){
+        DocumentReference db;
+        DocumentReference location = db.collection("Users");
+
+        Query query = location.whereEqualTo("location", currentLocation)
+
+
     }
 
     //navigation method
