@@ -15,18 +15,18 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
-public class account extends AppCompatActivity implements AdapterView.OnItemSelectedListener, NavigationView.OnNavigationItemSelectedListener{
+public class account extends AppCompatActivity implements /*AdapterView.OnItemSelectedListener,*/ NavigationView.OnNavigationItemSelectedListener{
 
     private DrawerLayout drawer;
-    private Spinner primary_instrument;
-    private Spinner secondary_instrument;
+    //private Spinner primary_instrument;
+    //private Spinner secondary_instrument;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_account);
 
-        {
+        /*{
             primary_instrument = findViewById(R.id.primary_instrument);
             secondary_instrument = findViewById(R.id.secondary_instrument);
 
@@ -36,7 +36,7 @@ public class account extends AppCompatActivity implements AdapterView.OnItemSele
 
             primary_instrument.setAdapter(adapter);
             secondary_instrument.setAdapter(adapter);
-        }
+        }*/
 
         {
             Toolbar toolbar = findViewById(R.id.toolbar);
@@ -56,6 +56,7 @@ public class account extends AppCompatActivity implements AdapterView.OnItemSele
             navigationView.setCheckedItem(R.id.nav_account);
         }
     }
+    /*
     //Methods for spinners
     public void onItemSelected(AdapterView<?> parent, View view,
                                int pos, long id) {
@@ -66,7 +67,7 @@ public class account extends AppCompatActivity implements AdapterView.OnItemSele
     public void onNothingSelected(AdapterView<?> parent) {
         // Another interface callback
     }
-    //
+    */
     //navigation method
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item){
