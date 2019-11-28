@@ -229,6 +229,14 @@ public class setup extends AppCompatActivity {
         userMap.put("lName", last_name);
         userMap.put("dob", birth_date);
         userMap.put("image", download_uri.toString());
+        userMap.put("location", null);
+        userMap.put("primaryInstrument", null);
+        userMap.put("secondaryInstrument", null);
+        userMap.put("genreOne", null);
+        userMap.put("genreTwo", null);
+        userMap.put("genreThree", null);
+        userMap.put("bio", null);
+
 
         firebaseFirestore.collection("Users").document(user_id).set(userMap).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
@@ -237,7 +245,7 @@ public class setup extends AppCompatActivity {
                 if(task.isSuccessful()){
 
                     Toast.makeText(setup.this, "The user Settings are updated.", Toast.LENGTH_LONG).show();
-                    Intent mainIntent = new Intent(setup.this, discovery.class);
+                    Intent mainIntent = new Intent(setup.this, account.class);
                     startActivity(mainIntent);
                     finish();
 

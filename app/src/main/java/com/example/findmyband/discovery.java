@@ -2,6 +2,11 @@ package com.example.findmyband;
 
 import android.content.Intent;
 import androidx.annotation.NonNull;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.navigation.NavigationView;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -11,18 +16,28 @@ import android.os.Bundle;
 import androidx.appcompat.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentChange;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.Query;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.lorentzos.flingswipe.SwipeFlingAdapterView;
 
 import java.util.ArrayList;
+import java.util.BitSet;
 
 public class discovery extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
@@ -35,12 +50,12 @@ public class discovery extends AppCompatActivity implements NavigationView.OnNav
     //
 
     private String user_id;
+    private String currentLocation;
     private StorageReference storageReference;
     private FirebaseAuth firebaseAuth;
-    private FirebaseFirestore firebaseFirestore;
-
-
-
+    private FirebaseFirestore db = FirebaseFirestore.getInstance();
+    private DocumentReference currentUser;
+    private Object View;
 
 
     @Override
@@ -71,8 +86,8 @@ public class discovery extends AppCompatActivity implements NavigationView.OnNav
         firebaseAuth = FirebaseAuth.getInstance();
         user_id = firebaseAuth.getCurrentUser().getUid();
 
-        firebaseFirestore = FirebaseFirestore.getInstance();
-        storageReference = FirebaseStorage.getInstance().getReference();
+        currentUser = db.document("Users/"+user_id);
+
 
         //Swipe cards
         al = new ArrayList<>();
@@ -140,12 +155,49 @@ public class discovery extends AppCompatActivity implements NavigationView.OnNav
         //Swipe Cards
     }
 
-    public void checkUserLocation(){
-        DocumentReference db;
-        DocumentReference location = db.collection("Users");
+    public void getCurrentLocation(View view){
+        currentUser.get()
+                .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                    @Override
+                    public void onSuccess(DocumentSnapshot documentSnapshot) {
+                        if(documentSnapshot.exists()){
+                            currentLocation = documentSnapshot.getString("location");
+                        }
 
-        Query query = location.whereEqualTo("location", currentLocation)
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(discovery.this,"Document does not exist", Toast.LENGTH_SHORT).show();;
+            }
+        });
+    }
 
+    //Searches the users by location and adds them to the stack
+    public void generateStack(){
+
+        // Create a reference to the Users collection
+        CollectionReference users = db.collection("Users");
+
+        // Create a query against the collection.
+        Query query = users.whereEqualTo("location", currentLocation);
+
+
+        db.collection("Users")
+                .whereEqualTo("location", true)
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+                              //  Log.d(TAG, document.getId() + " => " + document.getData());
+                            }
+                        } else {
+                            //Log.d(TAG, "Error getting documents: ", task.getException());
+                        }
+                    }
+                });
 
     }
 

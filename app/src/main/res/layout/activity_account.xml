@@ -60,14 +60,13 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
-                android:layout_marginBottom="8dp"
                 android:text="Instrument(s)"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
                 android:textSize="22sp"
-                app:layout_constraintBottom_toTopOf="@+id/primary_instrument"
                 app:layout_constraintEnd_toStartOf="@+id/guideline"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/location" />
 
             <EditText
                 android:id="@+id/primary_instrument"
@@ -75,13 +74,12 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
-                android:layout_marginBottom="8dp"
                 android:ems="10"
                 android:hint="Primary Instrument"
                 android:inputType="textPersonName"
-                app:layout_constraintBottom_toTopOf="@+id/secondary_instrument"
                 app:layout_constraintEnd_toStartOf="@+id/guideline"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/instrument_textView" />
 
             <EditText
                 android:id="@+id/secondary_instrument"
@@ -89,13 +87,12 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
-                android:layout_marginBottom="8dp"
                 android:ems="10"
                 android:hint="Secondary instrument"
                 android:inputType="textPersonName"
-                app:layout_constraintBottom_toTopOf="@+id/guideline2"
                 app:layout_constraintEnd_toStartOf="@+id/guideline"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/primary_instrument" />
 
             <TextView
                 android:id="@+id/genres_textView"
@@ -103,13 +100,12 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
-                android:layout_marginBottom="8dp"
                 android:text="Genre(s)"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
                 android:textSize="22sp"
-                app:layout_constraintBottom_toTopOf="@+id/genre_one"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/guideline" />
+                app:layout_constraintStart_toStartOf="@+id/guideline"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <EditText
                 android:id="@+id/genre_one"
@@ -117,14 +113,13 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
-                android:layout_marginBottom="8dp"
                 android:ems="10"
                 android:hint="Genre"
                 android:inputType="textPersonName"
-                app:layout_constraintBottom_toTopOf="@+id/genre_two"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toStartOf="@+id/guideline" />
+                app:layout_constraintStart_toStartOf="@+id/guideline"
+                app:layout_constraintTop_toBottomOf="@+id/genres_textView" />
 
             <EditText
                 android:id="@+id/genre_two"
@@ -132,14 +127,13 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
-                android:layout_marginBottom="8dp"
                 android:ems="10"
                 android:hint="Genre"
                 android:inputType="textPersonName"
-                app:layout_constraintBottom_toTopOf="@+id/genre_three"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toStartOf="@+id/guideline" />
+                app:layout_constraintStart_toStartOf="@+id/guideline"
+                app:layout_constraintTop_toBottomOf="@+id/genre_one" />
 
             <EditText
                 android:id="@+id/genre_three"
@@ -147,13 +141,12 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
-                android:layout_marginBottom="8dp"
                 android:ems="10"
                 android:hint="Genre"
                 android:inputType="textPersonName"
-                app:layout_constraintBottom_toTopOf="@+id/guideline2"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/guideline" />
+                app:layout_constraintStart_toStartOf="@+id/guideline"
+                app:layout_constraintTop_toBottomOf="@+id/genre_two" />
 
             <TextView
                 android:id="@+id/bio_textView"
@@ -212,20 +205,6 @@
                 app:layout_constraintEnd_toStartOf="@+id/guideline"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/location_textView" />
-
-            <ImageView
-                android:id="@+id/profile_picture"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginBottom="8dp"
-                app:layout_constraintBottom_toTopOf="@+id/genres_textView"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/guideline"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/ic_account" />
 
             <Button
                 android:id="@+id/logout_button"
