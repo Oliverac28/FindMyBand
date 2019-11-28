@@ -9,32 +9,58 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 public class message extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
     private DrawerLayout drawer;
+
+    private ListView listView;
+    private String[] dummy_users = {"user1", "user2", "user3", "user4", "user5", "user6", "user7", "user8", "user9", "user10"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_message);
 
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        {
+            listView = findViewById(R.id.friends);
+            ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, dummy_users);
+            listView.setAdapter(adapter);
 
-        drawer = findViewById(R.id.drawer_layout);
-        //*****
-        NavigationView navigationView = findViewById(R.id.nav_view);//listener for navigation method
-        navigationView.setNavigationItemSelectedListener(this);
-        //*****
+            AdapterView.OnItemClickListener openChat = new AdapterView.OnItemClickListener() {
+                public void onItemClick(AdapterView parent, View v, int position, long id) {
+                    // Do something in response to the click
+                }
+            };
 
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar,
-                R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.addDrawerListener(toggle);
-        toggle.syncState();
+            listView.setOnItemClickListener(openChat);
+        }
 
-        navigationView.setCheckedItem(R.id.nav_message);
+        {
+            Toolbar toolbar = findViewById(R.id.toolbar);
+            setSupportActionBar(toolbar);
+
+            drawer = findViewById(R.id.drawer_layout);
+            //*****
+            NavigationView navigationView = findViewById(R.id.nav_view);//listener for navigation method
+            navigationView.setNavigationItemSelectedListener(this);
+            //*****
+
+            ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar,
+                    R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+            drawer.addDrawerListener(toggle);
+            toggle.syncState();
+
+            navigationView.setCheckedItem(R.id.nav_message);
+        }
     }
 
     //navigation method

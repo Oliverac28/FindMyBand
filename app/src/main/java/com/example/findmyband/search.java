@@ -9,7 +9,13 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import android.view.LayoutInflater;
 import android.view.MenuItem;
+import android.view.ViewGroup;
+import android.widget.TextView;
 
 public class search extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
@@ -20,21 +26,23 @@ public class search extends AppCompatActivity implements NavigationView.OnNaviga
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
 
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        {
+            Toolbar toolbar = findViewById(R.id.toolbar);
+            setSupportActionBar(toolbar);
 
-        drawer = findViewById(R.id.drawer_layout);
-        //*****
-        NavigationView navigationView = findViewById(R.id.nav_view);//listener for navigation method
-        navigationView.setNavigationItemSelectedListener(this);
-        //*****
+            drawer = findViewById(R.id.drawer_layout);
+            //*****
+            NavigationView navigationView = findViewById(R.id.nav_view);//listener for navigation method
+            navigationView.setNavigationItemSelectedListener(this);
+            //*****
 
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar,
-                R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.addDrawerListener(toggle);
-        toggle.syncState();
+            ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar,
+                    R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+            drawer.addDrawerListener(toggle);
+            toggle.syncState();
 
-        navigationView.setCheckedItem(R.id.nav_search);
+            navigationView.setCheckedItem(R.id.nav_search);
+        }
     }
 
     //navigation method
