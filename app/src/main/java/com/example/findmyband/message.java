@@ -35,7 +35,7 @@ public class message extends AppCompatActivity implements NavigationView.OnNavig
             ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, dummy_users);
             listView.setAdapter(adapter);
 
-            //listView.setOnItemClickListener(openChat);
+            listView.setOnItemClickListener(openChat);
         }
 
         {
@@ -56,13 +56,13 @@ public class message extends AppCompatActivity implements NavigationView.OnNavig
             navigationView.setCheckedItem(R.id.nav_message);
         }
     }
-/*
+
     private AdapterView.OnItemClickListener openChat = new AdapterView.OnItemClickListener() {
         public void onItemClick(AdapterView parent, View v, int position, long id) {
             Intent intent_chat = new Intent(getApplicationContext(), chat.class);
             startActivity(intent_chat);
         }
-    };*/
+    };
 
     //navigation method
     @Override

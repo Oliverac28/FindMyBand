@@ -21,7 +21,7 @@ public class chat extends AppCompatActivity {
 
         Slidr.attach(this);
 
-        listView = findViewById(R.id.friends);
+        listView = findViewById(R.id.display_messages);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, dummy_messages);
         listView.setAdapter(adapter);
     }
