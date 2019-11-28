@@ -41,6 +41,9 @@ dependencies {
     implementation 'com.lorentzos.swipecards:library:1.0.9'
     implementation 'de.hdodenhof:circleimageview:3.0.1'
     implementation 'com.theartofdev.edmodo:android-image-cropper:2.8.+'
+    implementation 'com.github.bumptech.glide:glide:4.6.1'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.6.1'
+    implementation 'id.zelory:compressor:2.1.0'
 
 
     // add SDKs for desired Firebase products

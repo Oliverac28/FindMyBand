@@ -5,6 +5,9 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="radio_male">Male</string>
     <string name="radio_female">Female</string>
+    <string name="register">Register</string>
+    <string name="password">Password</string>
+    <string name="confirm_password">Confirm Password</string>
 
     <string-array name="instrument_array">
         <item>None</item>
