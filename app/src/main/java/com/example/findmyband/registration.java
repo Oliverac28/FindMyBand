@@ -3,7 +3,6 @@ package com.example.findmyband;
 import android.content.Intent;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.net.nsd.NsdManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -39,7 +38,7 @@ public class registration extends AppCompatActivity {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-                if( user != null ){
+                if( user != null){
                     Intent intent = new Intent(registration.this, setup.class);
                     startActivity( intent );
                     finish();
@@ -66,8 +65,8 @@ public class registration extends AppCompatActivity {
                     Toast.makeText(registration.this, "Password and Confirmation Does not Match", Toast.LENGTH_SHORT).show();
                 }
 
-               else if ( (password.length() < 8 ) ) {
-                    Toast.makeText(registration.this, "Enter a Password having 8 characters", Toast.LENGTH_SHORT).show();
+               else if ( (password.length() < 7 ) ) {
+                    Toast.makeText(registration.this, "Password must contain at least 7 characters", Toast.LENGTH_SHORT).show();
 
                 }
                 else{

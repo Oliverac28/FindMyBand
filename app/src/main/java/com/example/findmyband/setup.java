@@ -100,14 +100,12 @@ public class setup extends AppCompatActivity {
                         mLName.setText(lName);
                         mDob.setText(dob);
 
-
-
                     }
 
                 } else {
 
                     String error = task.getException().getMessage();
-                    //Toast.makeText(setup.this, "(FIRESTORE Retrieve Error) : " + error, Toast.LENGTH_LONG).show();
+                    Toast.makeText(setup.this, "(FIRESTORE Retrieve Error2) : " + error, Toast.LENGTH_LONG).show();
 
                 }
 
@@ -246,7 +244,7 @@ public class setup extends AppCompatActivity {
                 } else {
 
                     String error = task.getException().getMessage();
-                    Toast.makeText(setup.this, "(FIRESTORE Error) : " + error, Toast.LENGTH_LONG).show();
+                    Toast.makeText(setup.this, "(FIRESTORE Error1) : " + error, Toast.LENGTH_LONG).show();
 
                 }
 
