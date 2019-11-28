@@ -23,7 +23,7 @@ public class message extends AppCompatActivity implements NavigationView.OnNavig
     private DrawerLayout drawer;
 
     private ListView listView;
-    private String[] dummy_users = {"user1", "user2", "user3", "user4", "user5", "user6", "user7", "user8", "user9", "user10"};
+    private String[] dummy_users = {"Pierre", "Suzanne", "Jacques", "Eric", "Bob", "Marie", "Tyson", "Oleg", "Dylan", "Aras"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

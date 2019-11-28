@@ -18,6 +18,7 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -38,17 +39,21 @@ import com.lorentzos.flingswipe.SwipeFlingAdapterView;
 
 import java.util.ArrayList;
 import java.util.BitSet;
+import java.util.List;
 
 public class discovery extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
+
 
     private DrawerLayout drawer;
 
     //Swipe cards//
-    private ArrayList<String> al;
-    private ArrayAdapter<String> arrayAdapter;
+
+    private cards cards_data[];
+    private arrayAdapter arrayAdapter;
     private int i;
     //
 
+    private final String COLLECTION_KEY = "Users";
     private String user_id;
     private String currentLocation;
     private StorageReference storageReference;
@@ -56,6 +61,9 @@ public class discovery extends AppCompatActivity implements NavigationView.OnNav
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private DocumentReference currentUser;
     private Object View;
+
+
+    List<cards> rowItems;
 
 
     @Override
@@ -90,19 +98,13 @@ public class discovery extends AppCompatActivity implements NavigationView.OnNav
 
 
         //Swipe cards
-        al = new ArrayList<>();
-        al.add("php");
-        al.add("c");
-        al.add("python");
-        al.add("java");
-        al.add("html");
-        al.add("c++");
-        al.add("css");
-        al.add("javascript");
+        rowItems = new ArrayList<cards>();
 
-        arrayAdapter = new ArrayAdapter<>(this, R.layout.item, R.id.helloText, al );
+        arrayAdapter = new arrayAdapter(this, R.layout.item, rowItems );
 
         SwipeFlingAdapterView flingContainer = (SwipeFlingAdapterView) findViewById(R.id.frame);
+
+
 
 
         flingContainer.setAdapter(arrayAdapter);
@@ -111,7 +113,7 @@ public class discovery extends AppCompatActivity implements NavigationView.OnNav
             public void removeFirstObjectInAdapter() {
                 // this is the simplest way to delete an object from the Adapter (/AdapterView)
                 Log.d("LIST", "removed object!");
-                al.remove(0);
+                rowItems.remove(0);
                 arrayAdapter.notifyDataSetChanged();
             }
 
@@ -131,7 +133,7 @@ public class discovery extends AppCompatActivity implements NavigationView.OnNav
             @Override
             public void onAdapterAboutToEmpty(int itemsInAdapter) {
                 // Ask for more data here
-                al.add("XML ".concat(String.valueOf(i)));
+                //rowItems.add("XML ".concat(String.valueOf(i)));
                 arrayAdapter.notifyDataSetChanged();
                 Log.d("LIST", "notified");
                 i++;
@@ -153,9 +155,12 @@ public class discovery extends AppCompatActivity implements NavigationView.OnNav
         });
 
         //Swipe Cards
+
+
     }
 
-    public void getCurrentLocation(View view){
+    public void onStart(){
+        super.onStart();
         currentUser.get()
                 .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                     @Override
@@ -171,27 +176,36 @@ public class discovery extends AppCompatActivity implements NavigationView.OnNav
                 Toast.makeText(discovery.this,"Document does not exist", Toast.LENGTH_SHORT).show();;
             }
         });
-    }
-
-    //Searches the users by location and adds them to the stack
-    public void generateStack(){
+//    }
+//
+//    //Searches the users by location and adds them to the stack
+//    public void generateStack(){
 
         // Create a reference to the Users collection
-        CollectionReference users = db.collection("Users");
+        CollectionReference users = db.collection(COLLECTION_KEY);
 
         // Create a query against the collection.
-        Query query = users.whereEqualTo("location", currentLocation);
+        final Query query = users.whereEqualTo("location", currentLocation);
 
 
-        db.collection("Users")
-                .whereEqualTo("location", true)
+        db.collection(COLLECTION_KEY)
+                .whereEqualTo("location", currentLocation)
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         if (task.isSuccessful()) {
                             for (QueryDocumentSnapshot document : task.getResult()) {
-                              //  Log.d(TAG, document.getId() + " => " + document.getData());
+
+                                cards item = document.toObject(cards.class);
+
+                                //item.setName();
+
+
+                                rowItems.add(item);
+                                arrayAdapter.notifyDataSetChanged();
+
+                              // Log.d(TAG, document.getId() + " => " + document.getData());
                             }
                         } else {
                             //Log.d(TAG, "Error getting documents: ", task.getException());
