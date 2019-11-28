@@ -7,7 +7,8 @@
     android:id="@+id/drawer_layout"
     android:fitsSystemWindows="true"
     tools:context=".account"
-    tools:openDrawer="start">
+    >
+    tools:openDrawer="start"
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -43,23 +44,15 @@
 
             <Button
                 android:id="@+id/save_profile_button"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
                 android:layout_marginBottom="8dp"
                 android:text="Save Changes"
                 app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/guideline"
                 app:layout_constraintStart_toStartOf="parent" />
-
-            <Button
-                android:id="@+id/logout_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginBottom="8dp"
-                android:text="Log Out"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent" />
 
             <TextView
                 android:id="@+id/instrument_textView"
@@ -68,31 +61,38 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginBottom="8dp"
-                android:text="Instrument Type(s)"
+                android:text="Instrument(s)"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
                 android:textSize="22sp"
                 app:layout_constraintBottom_toTopOf="@+id/primary_instrument"
                 app:layout_constraintEnd_toStartOf="@+id/guideline"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent" />
 
-            <Spinner
+            <EditText
                 android:id="@+id/primary_instrument"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginBottom="8dp"
+                android:ems="10"
+                android:hint="Primary Instrument"
+                android:inputType="textPersonName"
                 app:layout_constraintBottom_toTopOf="@+id/secondary_instrument"
                 app:layout_constraintEnd_toStartOf="@+id/guideline"
                 app:layout_constraintStart_toStartOf="parent" />
 
-            <Spinner
+            <EditText
                 android:id="@+id/secondary_instrument"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginBottom="8dp"
+                android:ems="10"
+                android:hint="Secondary instrument"
+                android:inputType="textPersonName"
                 app:layout_constraintBottom_toTopOf="@+id/guideline2"
                 app:layout_constraintEnd_toStartOf="@+id/guideline"
                 app:layout_constraintStart_toStartOf="parent" />
@@ -187,48 +187,20 @@
                 app:layout_constraintTop_toBottomOf="@+id/bio_textView" />
 
             <TextView
-                android:id="@+id/info_textView"
+                android:id="@+id/location_textView"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
-                android:text="Info."
+                android:text="Location"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
                 app:layout_constraintEnd_toStartOf="@+id/guideline"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <EditText
-                android:id="@+id/name"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
-                android:ems="10"
-                android:hint="Name"
-                android:inputType="textPersonName"
-                app:layout_constraintEnd_toStartOf="@+id/guideline"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/info_textView" />
-
-            <EditText
-                android:id="@+id/country"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
-                android:ems="10"
-                android:hint="Country"
-                android:inputType="textPersonName"
-                app:layout_constraintEnd_toStartOf="@+id/guideline"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/name" />
-
-            <EditText
-                android:id="@+id/city"
+                android:id="@+id/location"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -239,7 +211,7 @@
                 android:inputType="textPersonName"
                 app:layout_constraintEnd_toStartOf="@+id/guideline"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/country" />
+                app:layout_constraintTop_toBottomOf="@+id/location_textView" />
 
             <ImageView
                 android:id="@+id/profile_picture"
@@ -254,6 +226,18 @@
                 app:layout_constraintStart_toStartOf="@+id/guideline"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/ic_account" />
+
+            <Button
+                android:id="@+id/logout_button"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:text="Logout"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/guideline" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
