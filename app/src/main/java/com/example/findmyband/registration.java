@@ -19,6 +19,9 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class registration extends AppCompatActivity {
 
+    // reverse button
+    private Button reverseButton;
+
     private Button mRegister;
     private EditText mEmail;
     private EditText mPassword;
@@ -49,6 +52,7 @@ public class registration extends AppCompatActivity {
         };
 
         mRegister = (Button)findViewById(R.id.registerBtn);
+        reverseButton = (Button)findViewById(R.id.backBtn);
 
         mEmail = (EditText)findViewById(R.id.emailText);
         mPassword = (EditText)findViewById(R.id.passwordText);
@@ -85,7 +89,21 @@ public class registration extends AppCompatActivity {
             }
         });
 
-        //Registration
+        //reverse Button
+
+        reverseButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(registration.this, MainActivity.class );
+                startActivity(intent);
+                finish();
+                return;
+
+            }
+        });
+
+        //reverseButton
     }
 
     //Registration
