@@ -4,8 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background_material_light"
+    android:background="#85C1E9"
     tools:context=".chat">
+    <!--android:background="@color/background_material_light"-->
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline3"
@@ -17,29 +18,36 @@
     <EditText
         android:id="@+id/message_text"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="44dp"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
+        android:background="#ffffff"
         android:ems="10"
         android:hint="Message..."
         android:inputType="textPersonName"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guideline3"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline4" />
 
     <Button
         android:id="@+id/send_message"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
+        android:onClick="sendMessage"
         android:text="Send"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/message_text"
-        android:onClick="sendMessage"/>
+        app:layout_constraintTop_toTopOf="@+id/guideline4" />
 
     <ListView
         android:id="@+id/display_messages"
@@ -50,9 +58,16 @@
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:stackFromBottom="true"
-        app:layout_constraintBottom_toTopOf="@+id/message_text"
+        app:layout_constraintBottom_toTopOf="@+id/guideline4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.91" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
