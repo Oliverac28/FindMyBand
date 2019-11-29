@@ -6,49 +6,130 @@
     android:layout_height="wrap_content"
     android:layout_gravity="center"
     android:clipToPadding="false"
-    android:paddingStart="40sp"
+    android:orientation="vertical"
+    android:outlineProvider="bounds"
+    android:paddingLeft="40sp"
     android:paddingTop="20sp"
-    android:paddingEnd="40sp"
+    android:paddingRight="40sp"
     android:paddingBottom="20sp">
 
     <android.support.v7.widget.CardView
         android:id="@+id/cardView"
-        android:layout_width="175dp"
-        android:layout_height="255dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
-        app:cardCornerRadius="4dp"
-        app:cardElevation="2dp">
+        android:elevation="2dp"
+        app:cardCornerRadius="4dp">
 
-
-        <FrameLayout
-            android:layout_width="250dp"
-            android:layout_height="170dp">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="300dp"
+            android:layout_height="350dp"
+            android:layout_gravity="center"
+            android:orientation="vertical">
 
             <ImageView
                 android:id="@+id/image"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="300dp"
+                android:scaleType="centerCrop"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:contentDescription="TODO" />
 
             <TextView
                 android:id="@+id/name"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#E339"
-                android:gravity="center"
+                android:gravity="Top|Right"
+                android:paddingStart="20sp"
                 android:textColor="@android:color/black"
-                android:textSize="40sp"
+                android:textSize="30sp"
+                tools:layout_editor_absoluteX="1dp"
                 tools:text="hello" />
+
             <TextView
                 android:id="@+id/lName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center|left"
+                android:paddingLeft="20sp"
+                android:textColor="@android:color/black"
+                android:textSize="30sp"
+                tools:text="hello" />
+
+            <TextView
+                android:id="@+id/location"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center|left"
+                android:paddingLeft="20sp"
+                android:textColor="@android:color/black"
+                android:textSize="30sp"
+                tools:text="hello" />
+
+            <TextView
+                android:id="@+id/primaryInstrument"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center|left"
+                android:paddingLeft="20sp"
+                android:textColor="@android:color/black"
+                android:textSize="30sp"
+                tools:text="hello" />
+
+            <TextView
+                android:id="@+id/secondaryInstrument"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center|left"
+                android:paddingLeft="20sp"
+                android:textColor="@android:color/black"
+                android:textSize="30sp"
+                tools:text="hello" />
+
+            <TextView
+                android:id="@+id/genre1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center|left"
+                android:paddingLeft="20sp"
+                android:textColor="@android:color/black"
+                android:textSize="30sp"
+                tools:text="hello" />
+
+            <TextView
+                android:id="@+id/genre2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center|left"
+                android:paddingLeft="20sp"
+                android:textColor="@android:color/black"
+                android:textSize="30sp"
+                tools:text="hello" />
+
+            <TextView
+                android:id="@+id/genre3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center|left"
+                android:paddingLeft="20sp"
+                android:textColor="@android:color/black"
+                android:textSize="30sp"
+                tools:text="hello" />
+
+            <TextView
+                android:id="@+id/bio"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center|left"
+                android:paddingLeft="20sp"
+                android:textColor="@android:color/black"
+                android:textSize="30sp"
+                tools:text="hello" />
 
 
-        </FrameLayout>
-
-
-
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </android.support.v7.widget.CardView>
 
 

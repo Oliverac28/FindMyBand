@@ -6,7 +6,7 @@ public class cards {
 //    private String userId;
     private String name;
     private String lName;
-    private String imageUri;
+    private String image;
     private String location;
     private String primaryInstrument;
     private String secondaryInstrument;
@@ -16,11 +16,11 @@ public class cards {
     private String bio;
 
 
-    public cards (String name,String lName, String imageUri,String location,String primaryInstrument,String secondaryInstrument,String genre1,String genre2, String genre3,String bio) {
+    public cards (String name,String lName, String imageUrl,String location,String primaryInstrument,String secondaryInstrument,String genre1,String genre2, String genre3,String bio) {
 
         this.name = name;
         this.lName = lName;
-        this.imageUri = imageUri;
+        this.image = imageUrl;
         this.location = location;
         this.primaryInstrument = primaryInstrument;
         this.secondaryInstrument = secondaryInstrument;
@@ -54,12 +54,12 @@ public class cards {
         this.lName = lName;
     }
 
-    public String getImageUri(){
-        return imageUri;
+    public String getImageUrl(){
+        return image;
     }
 
-    public void setImageUri(){
-        this.imageUri = imageUri;
+    public void setImageUrl(){
+        this.image = image;
     }
 
     public String getLocation(){
