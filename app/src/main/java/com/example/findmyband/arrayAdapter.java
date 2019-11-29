@@ -24,31 +24,29 @@ public class arrayAdapter extends ArrayAdapter<cards> {
     public View getView (int position, View convertView, ViewGroup parent){
         cards cards_item = getItem(position);
 
-        if (convertView == null){
-            convertView = LayoutInflater.from(getContext()).inflate(R.layout.item, parent,false);
-
-        }
+        if (convertView == null)
+            convertView = LayoutInflater.from(getContext()).inflate(R.layout.item, parent, false);
 
         TextView mName = (TextView) convertView.findViewById(R.id.name);
         TextView mLName = (TextView) convertView.findViewById(R.id.lName);
         TextView mLocation = (TextView) convertView.findViewById(R.id.location);
-        TextView mPrimaryInstrument = (TextView) convertView.findViewById(R.id.primary_instrument);
-        TextView mSecondaryInstrument = (TextView) convertView.findViewById(R.id.secondary_instrument);
-        TextView mGenre1 = (TextView) convertView.findViewById(R.id.genre_one);
-        TextView mGenre2 = (TextView) convertView.findViewById(R.id.genre_two);
-        TextView mGenre3 = (TextView) convertView.findViewById(R.id.genre_three);
+        TextView mPrimaryInstrument = (TextView) convertView.findViewById(R.id.primaryInstrument);
+        TextView mSecondaryInstrument = (TextView) convertView.findViewById(R.id.secondaryInstrument);
+        TextView mGenre1 = (TextView) convertView.findViewById(R.id.genreOne);
+        TextView mGenre2 = (TextView) convertView.findViewById(R.id.genreTwo);
+        TextView mGenre3 = (TextView) convertView.findViewById(R.id.genreThree);
         TextView mBio = (TextView) convertView.findViewById(R.id.bio);
         ImageView image = (ImageView) convertView.findViewById(R.id.image);
 
-        mName.setText(cards_item.getName());
-        mLName.setText(cards_item.getLName());
-        mLocation.setText(cards_item.getLocation());
-        mPrimaryInstrument.setText(cards_item.getPrimaryInstrument());
-        mSecondaryInstrument.setText(cards_item.getSecondaryInstrument());
-        mGenre1.setText(cards_item.getGenre1());
-        mGenre2.setText(cards_item.getGenre2());
-        mGenre3.setText(cards_item.getGenre3());
-        mBio.setText(cards_item.getBio());
+        mName.setText (cards_item.getName ());
+        //mLName.setText (cards_item.getLName ());
+        mLocation.setText (cards_item.getLocation ());
+        mPrimaryInstrument.setText (cards_item.getPrimaryInstrument ());
+        mSecondaryInstrument.setText (cards_item.getSecondaryInstrument ());
+        mGenre1.setText (cards_item.getGenre1 ());
+        mGenre2.setText (cards_item.getGenre2 ());
+        mGenre3.setText (cards_item.getGenre3 ());
+        mBio.setText (cards_item.getBio ());
 
         switch(cards_item.getImageUrl()){
             case "default":

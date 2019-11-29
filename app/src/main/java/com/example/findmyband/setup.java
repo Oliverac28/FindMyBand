@@ -34,6 +34,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 import id.zelory.compressor.Compressor;
@@ -216,7 +217,7 @@ public class setup extends AppCompatActivity {
 
         if(task != null) {
 
-            download_uri = task.getResult().getUploadSessionUri();
+            download_uri = Objects.requireNonNull(task.getResult()).getUploadSessionUri();
 
         } else {
 
@@ -228,14 +229,15 @@ public class setup extends AppCompatActivity {
         userMap.put("name", user_name);
         userMap.put("lName", last_name);
         userMap.put("dob", birth_date);
+        assert download_uri != null;
         userMap.put("image", download_uri.toString());
-        userMap.put("location", null);
-        userMap.put("primaryInstrument", null);
-        userMap.put("secondaryInstrument", null);
-        userMap.put("genreOne", null);
-        userMap.put("genreTwo", null);
-        userMap.put("genreThree", null);
-        userMap.put("bio", null);
+        userMap.put("location", "");
+        userMap.put("primaryInstrument", "");
+        userMap.put("secondaryInstrument", "");
+        userMap.put("genreOne", "");
+        userMap.put("genreTwo", "");
+        userMap.put("genreThree", "");
+        userMap.put("bio", "");
 
 
         firebaseFirestore.collection("Users").document(user_id).set(userMap).addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -251,7 +253,7 @@ public class setup extends AppCompatActivity {
 
                 } else {
 
-                    String error = task.getException().getMessage();
+                    String error = Objects.requireNonNull(task.getException()).getMessage();
                     Toast.makeText(setup.this, "(FIRESTORE Error1) : " + error, Toast.LENGTH_LONG).show();
 
                 }

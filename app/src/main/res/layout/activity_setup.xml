@@ -12,7 +12,7 @@
         android:id="@+id/setup_image"
         android:layout_width="203dp"
         android:layout_height="206dp"
-        android:layout_alignParentLeft="false"
+        android:layout_alignParentStart="false"
         android:layout_alignParentTop="true"
         android:src="@android:drawable/ic_menu_myplaces"
         app:layout_constraintBottom_toBottomOf="parent"

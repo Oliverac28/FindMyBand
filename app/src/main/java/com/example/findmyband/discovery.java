@@ -56,20 +56,21 @@ public class discovery extends AppCompatActivity implements NavigationView.OnNav
     private final String COLLECTION_KEY = "Users";
     private String user_id;
     private String currentLocation;
-    private StorageReference storageReference;
     private FirebaseAuth firebaseAuth;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private DocumentReference currentUser;
-    private Object View;
 
 
     List<cards> rowItems;
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_discovery);
+
+        rowItems = new ArrayList<>();
 
         //Navigation
 
@@ -99,13 +100,10 @@ public class discovery extends AppCompatActivity implements NavigationView.OnNav
         generateCurrentLocation();
 
         //Swipe cards
-        rowItems = new ArrayList<cards>();
 
         arrayAdapter = new arrayAdapter(this, R.layout.item, rowItems );
 
         SwipeFlingAdapterView flingContainer = (SwipeFlingAdapterView) findViewById(R.id.frame);
-
-
 
 
         flingContainer.setAdapter(arrayAdapter);
@@ -209,7 +207,7 @@ public class discovery extends AppCompatActivity implements NavigationView.OnNav
                                //Log.d("testing",(String)document.getData().get("name") + "");
 
 
-                               cards mycard = new cards(
+                               cards item = new cards(
                                        document.getData().get("name") + "",
                                        document.getData().get("lName") + "",
                                        document.getData().get("image") + "",
@@ -221,7 +219,7 @@ public class discovery extends AppCompatActivity implements NavigationView.OnNav
                                        document.getData().get("genreThree") + "",
                                        document.getData().get("bio") + ""
                                );
-                               rowItems.add(mycard);
+                               rowItems.add(item);
                                System.out.println(rowItems.toString());
 
 

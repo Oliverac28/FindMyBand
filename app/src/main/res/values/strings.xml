@@ -3,33 +3,11 @@
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="radio_male">Male</string>
-    <string name="radio_female">Female</string>
     <string name="register">Register</string>
     <string name="password">Password</string>
     <string name="confirm_password">Confirm Password</string>
+    <string name="name">Name</string>
+    <string name="location">Location</string>
+    <string name="last_name">Last Name</string>
 
-    <string-array name="instrument_array">
-        <item>None</item>
-        <item>Keyboard</item>
-        <item>Guitar</item>
-        <item>Violin</item>
-        <item>Drums</item>
-        <item>Wind</item>
-        <item>Vocals</item>
-        <item>Other</item>
-    </string-array>
-
-    <string-array name="dummy_users">
-        <item>user1</item>
-        <item>user2</item>
-        <item>user3</item>
-        <item>user4</item>
-        <item>user5</item>
-        <item>user6</item>
-        <item>user7</item>
-        <item>user8</item>
-        <item>user9</item>
-        <item>user10</item>
-    </string-array>
 </resources>
