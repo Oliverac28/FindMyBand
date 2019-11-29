@@ -17,7 +17,7 @@ import java.util.List;
 public class chat extends AppCompatActivity {
 
     private ListView listView;
-    ArrayAdapter<String> adapter;
+    private ArrayAdapter<String> adapter;
     private String[] dummy_messages = {"message1", "message2", "message3", "message4", "message5"
             , "message6", "message7", "message8", "message9", "message10"};
     private EditText editText;
