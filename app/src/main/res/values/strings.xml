@@ -9,5 +9,13 @@
     <string name="name">Name</string>
     <string name="location">Location</string>
     <string name="last_name">Last Name</string>
+    <string name="todo">TODO</string>
+    <string name="instrument1">Instrument1</string>
+    <string name="instrument2">Instrument2</string>
+    <string name="genre1">Genre1</string>
+    <string name="genre2">Genre2</string>
+    <string name="genre3">Genre3</string>
+    <string name="genre">Genre</string>
+    <string name="message">Message</string>
 
 </resources>

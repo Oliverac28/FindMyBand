@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center"
+    android:background="#00792B2B"
     android:clipToPadding="false"
     android:orientation="vertical"
     android:outlineProvider="bounds"
@@ -21,6 +22,7 @@
         android:layout_margin="10dp"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="20dp"
+        android:background="#00964949"
         android:elevation="5dp"
         app:cardCornerRadius="10dp">
 
@@ -28,6 +30,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="bottom"
+            android:background="#00805252"
+            android:backgroundTint="#00292424"
             android:gravity="center"
             android:orientation="vertical">
 
@@ -35,12 +39,13 @@
                 android:id="@+id/image"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
-                android:contentDescription="TODO"
+                android:contentDescription="@string/todo"
                 android:scaleType="centerCrop"
                 app:layout_constraintBottom_toTopOf="@+id/guideline5"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@color/colorPrimary" />
 
             <TextView
                 android:id="@+id/name"
@@ -74,66 +79,81 @@
                 android:id="@+id/primaryInstrument"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingEnd="10sp"
-                android:text="Instrument1"
+                android:layout_marginTop="32dp"
+                android:text="@string/instrument1"
                 android:textColor="@android:color/black"
                 android:textSize="15sp"
                 app:layout_constraintEnd_toStartOf="@+id/guideline7"
                 app:layout_constraintStart_toStartOf="parent"
-                tools:layout_editor_absoluteY="334dp" />
+                app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
             <TextView
                 android:id="@+id/secondaryInstrument"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:paddingStart="10sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="@string/instrument2"
+                android:textAlignment="center"
                 android:textColor="@android:color/black"
                 android:textSize="15sp"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/guideline7"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/location" />
+                app:layout_constraintTop_toBottomOf="@+id/primaryInstrument" />
 
             <TextView
                 android:id="@+id/genreOne"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:paddingEnd="10sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="5dp"
+                android:text="@string/genre1"
+                android:textAlignment="center"
                 android:textColor="@android:color/black"
                 android:textSize="15sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/primaryInstrument" />
+                app:layout_constraintStart_toStartOf="@+id/guideline7"
+                app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
             <TextView
                 android:id="@+id/genreTwo"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:paddingStart="10sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:text="@string/genre2"
+                android:textAlignment="center"
                 android:textColor="@android:color/black"
                 android:textSize="15sp"
-                app:layout_constraintEnd_toStartOf="@+id/genreThree"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/secondaryInstrument" />
+                app:layout_constraintBottom_toTopOf="@+id/genreThree"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/guideline7"
+                app:layout_constraintTop_toBottomOf="@+id/genreOne" />
 
             <TextView
                 android:id="@+id/genreThree"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
                 android:paddingEnd="10sp"
+                android:text="@string/genre3"
+                android:textAlignment="center"
                 android:textColor="@android:color/black"
                 android:textSize="15sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/genre2"
-                app:layout_constraintTop_toTopOf="@+id/genreOne"
+                app:layout_constraintStart_toStartOf="@+id/guideline7"
+                app:layout_constraintTop_toBottomOf="@+id/genreTwo"
                 tools:ignore="UnknownId" />
 
             <TextView
                 android:id="@+id/bio"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="70dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="15dp"
+                android:textAlignment="textStart"
                 android:textColor="#C66D6666"
-                android:textSize="15sp"
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toTopOf="@+id/guideline6"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent" />
@@ -142,18 +162,19 @@
                 android:id="@+id/textView4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Genre"
+                android:text="@string/genre"
+                android:textSize="18sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/guideline7"
-                tools:layout_editor_absoluteY="283dp" />
+                app:layout_constraintTop_toTopOf="@+id/guideline8" />
 
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/guideline5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                app:layout_constraintGuide_begin="174dp" />
+                app:layout_constraintGuide_begin="216dp" />
 
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/guideline6"
@@ -177,20 +198,29 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Instrument"
+                android:textSize="18sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toStartOf="@+id/guideline7"
                 app:layout_constraintStart_toStartOf="parent"
-                tools:layout_editor_absoluteY="283dp" />
+                app:layout_constraintTop_toTopOf="@+id/guideline8" />
 
             <Button
                 android:id="@+id/messageBtn"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                android:text="Button"
-                app:layout_constraintBottom_toBottomOf="@+id/secondaryInstrument"
+                android:text="@string/message"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/guideline6" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_begin="291dp" />
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
