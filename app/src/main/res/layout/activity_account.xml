@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:id="@+id/drawer_layout"
     android:fitsSystemWindows="true"
+    android:background="#85C1E9"
     tools:context=".account"
     >
     tools:openDrawer="start"
@@ -50,6 +51,7 @@
                 android:layout_marginEnd="8dp"
                 android:layout_marginBottom="8dp"
                 android:text="Save Changes"
+                android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/guideline"
                 app:layout_constraintStart_toStartOf="parent" />
@@ -63,6 +65,7 @@
                 android:text="Instrument(s)"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
                 android:textSize="22sp"
+                android:textStyle="bold"
                 app:layout_constraintEnd_toStartOf="@+id/guideline"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
@@ -77,6 +80,7 @@
                 android:ems="10"
                 android:hint="Primary Instrument"
                 android:inputType="textPersonName"
+                android:textStyle="bold"
                 app:layout_constraintEnd_toStartOf="@+id/guideline"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/instrument_textView" />
@@ -90,6 +94,7 @@
                 android:ems="10"
                 android:hint="Secondary instrument"
                 android:inputType="textPersonName"
+                android:textStyle="bold"
                 app:layout_constraintEnd_toStartOf="@+id/guideline"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/primary_instrument" />
@@ -103,6 +108,7 @@
                 android:text="Genre(s)"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
                 android:textSize="22sp"
+                android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/guideline"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -116,6 +122,7 @@
                 android:ems="10"
                 android:hint="Genre"
                 android:inputType="textPersonName"
+                android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="@+id/guideline"
@@ -130,6 +137,7 @@
                 android:ems="10"
                 android:hint="Genre"
                 android:inputType="textPersonName"
+                android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="@+id/guideline"
@@ -144,6 +152,7 @@
                 android:ems="10"
                 android:hint="Genre"
                 android:inputType="textPersonName"
+                android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/guideline"
                 app:layout_constraintTop_toBottomOf="@+id/genre_two" />
@@ -157,6 +166,7 @@
                 android:layout_marginEnd="8dp"
                 android:text="Bio"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textStyle="bold"
                 app:layout_constraintEnd_toStartOf="@+id/guideline"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/guideline2" />
@@ -188,6 +198,7 @@
                 android:layout_marginEnd="8dp"
                 android:text="Location"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textStyle="bold"
                 app:layout_constraintEnd_toStartOf="@+id/guideline"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -202,6 +213,7 @@
                 android:ems="10"
                 android:hint="City"
                 android:inputType="textPersonName"
+                android:textStyle="bold"
                 app:layout_constraintEnd_toStartOf="@+id/guideline"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/location_textView" />
@@ -214,6 +226,7 @@
                 android:layout_marginEnd="8dp"
                 android:layout_marginBottom="8dp"
                 android:text="Logout"
+                android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/guideline" />
@@ -227,6 +240,7 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:id="@+id/nav_view"
+        android:background="#85C1E9"
         app:headerLayout="@layout/nav_header"
         app:menu="@menu/drawer_menu"/>
 
