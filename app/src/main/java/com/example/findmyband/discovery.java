@@ -96,6 +96,8 @@ public class discovery extends AppCompatActivity implements NavigationView.OnNav
 
         currentUser = db.document("Users/"+user_id);
 
+        generateCurrentLocation();
+        generateStack();
 
         //Swipe cards
         rowItems = new ArrayList<cards>();
@@ -159,55 +161,60 @@ public class discovery extends AppCompatActivity implements NavigationView.OnNav
 
     }
 
-    public void onStart(){
-        super.onStart();
+    public void generateCurrentLocation() {
+
+        System.out.println("Test");
         currentUser.get()
                 .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                     @Override
-                    public void onSuccess(DocumentSnapshot documentSnapshot) {
-                        if(documentSnapshot.exists()){
+                    public void onSuccess (DocumentSnapshot documentSnapshot) {
+                        if (documentSnapshot.exists()) {
                             currentLocation = documentSnapshot.getString("location");
+                            System.out.println(currentLocation);
                         }
 
                     }
                 }).addOnFailureListener(new OnFailureListener() {
             @Override
-            public void onFailure(@NonNull Exception e) {
-                Toast.makeText(discovery.this,"Document does not exist", Toast.LENGTH_SHORT).show();;
+            public void onFailure (@NonNull Exception e) {
+                Toast.makeText(discovery.this, "Document does not exist", Toast.LENGTH_SHORT).show();
+                ;
             }
         });
-//    }
-//
-//    //Searches the users by location and adds them to the stack
-//    public void generateStack(){
+    }
 
+   //Searches the users by location and adds them to the stack
+    public void generateStack(){
+        System.out.println("Generate Stack begin");
         // Create a reference to the Users collection
         CollectionReference users = db.collection(COLLECTION_KEY);
 
         // Create a query against the collection.
         final Query query = users.whereEqualTo("location", currentLocation);
-
+        System.out.println(query.toString());
 
         db.collection(COLLECTION_KEY)
                 .whereEqualTo("location", currentLocation)
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                    public void onComplete (@NonNull Task<QuerySnapshot> task) {
                         if (task.isSuccessful()) {
                             for (QueryDocumentSnapshot document : task.getResult()) {
 
                                 cards item = document.toObject(cards.class);
+                                System.out.println(document.toString());
 
-                                //item.setName();
+                                System.out.println("Test123");
 
 
                                 rowItems.add(item);
                                 arrayAdapter.notifyDataSetChanged();
 
-                              // Log.d(TAG, document.getId() + " => " + document.getData());
+                                //Log.d(TAG, document.getId() + " => " + document.getData());
                             }
                         } else {
+                            System.out.println("Test12");
                             //Log.d(TAG, "Error getting documents: ", task.getException());
                         }
                     }
