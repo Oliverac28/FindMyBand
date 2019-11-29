@@ -38,7 +38,8 @@
         android:text="Send"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/message_text" />
+        app:layout_constraintStart_toEndOf="@+id/message_text"
+        android:onClick="sendMessage"/>
 
     <ListView
         android:id="@+id/display_messages"
